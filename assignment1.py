@@ -11,11 +11,26 @@ def factors(number):
     # number is an integer value
     # you will likely need to sort the values of your list
     answer = []
+    for i in range(1, number + 1):
+        if number % i == 0:
+            answer.append(i)
     return answer
 
 def gcflcm(n1,n2):
-    gcf = -1
-    lcm = -1
+    a1 = []
+    for i in range(1, n1 + 1):
+        if n1 % i == 0:
+            a1.append(i)
+
+    a2 = []
+    for i in range(1, n2 + 1):
+        if n2 % i == 0:
+            a2.append(i)
+
+    b1 = set(a1) & set(a2)
+
+    gcf = max(b1)
+    lcm = math.lcm(n1, n2)
     return gcf,lcm
 
 assert factors(12) == [1,2,3,4,6,12]
